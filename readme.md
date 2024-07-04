@@ -30,13 +30,14 @@
             personnel.router.js
 ```
 
-## Projenin isterleri
-- [x] Deparment ve Personnel tablolarımız olacak bunları birbirlerine bağlayacağız. .her deparmentın altında kendisine ait personel olacak.
-- [x] Her departmenda sadece 1 tane Lead olacak.
-- [ ] Admin veya Lead; dinamik url ile url de gelen isteğe göre response değişecek.Yani departmenlara ait personeli listelemek istediğimizde bunu tek bir url üzerinden yapacağız. departments/id/personnels
-- [ ] Admin yeni personel için CRUD işlemleri yapabilecek.(admin dan kasıt yetkili olan bunu farklı isim de diyebilirsiniz.)
-- [ ] Personel sadece kendi bilgilerini okuyabilir , güncelleyebilir ama silme yetkisi Adminde olacak.
-- [ ] Personeli silme yetkisi sadece admin olacak.
-active olmayan personel sisteme giriş yapamaz.
-- [ ] Departmentları login olan herkes okuyabilir, listeyelebilir ama Cud işlemlerini sadece admin yapacak.
-- [ ] Token authentication kullanacağız. Kullanıcı logout olduğunda tokeni sileceğiz. Token işlemlerini sadece admin yapacak.
+## Project Requirements
+
+We will have Department and Personnel tables and we will link them to each other.
+Each department will have its own personnel.
+Each department will have only one Lead.
+Admin or Lead; the response will change dynamically based on the request coming in the URL. In other words, when we want to list the personnel belonging to the departments, we will do this through a single URL: departments/id/personnels.
+Admin will be able to perform CRUD operations for new personnel (by admin, we mean someone authorized, you can call this by a different name if you want).
+Personnel can only read and update their own information but only the Admin will have the delete authority.
+Only the Admin will have the authority to delete personnel. Inactive personnel cannot log into the system.
+Anyone logged in can read and list the departments, but only the Admin can perform CUD operations.
+We will use token authentication. When a user logs out, the token will be deleted. Token operations will be performed only by the Admin.
