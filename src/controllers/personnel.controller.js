@@ -7,7 +7,7 @@ const Personnel = require("../models/personnel.model");
 
 module.exports = {
   list: async (req, res) => {
-    const data = await res.getModelList(Personnel,{},"departmentId");
+    const data = await res.getModelList(Personnel, {}, "departmentId");
     res.status(200).send({
       error: false,
       detail: await res.getModelListDetails(Personnel),
@@ -47,6 +47,14 @@ module.exports = {
     });
   },
   update: async (req, res) => {
+    if (!req.user.isAdmin) {
+      req.body.isAdmin = false;
+      delete req.body.isLead;
+      delete req.body.salary;
+      delete req.body.title;
+      delete req.body.startedAt;
+      delete req.body.isActive
+    }
     const isLead = req.body?.isLead || false;
     if (isLead) {
       const { departmentId } = await Personnel.findOne({ _id: req.params.id });
