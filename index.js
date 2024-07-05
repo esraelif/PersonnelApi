@@ -33,7 +33,7 @@ dbConnection();
 // https://github.com/expressjs/morgan
 //? npm i morgan
 
-// const morgan = require("morgan");
+const morgan = require("morgan");
 
 // app.use(morgan("combined"))
 // app.use(morgan("common"))
@@ -50,21 +50,21 @@ dbConnection();
 // setup the logger
 // app.use(morgan('combined', { stream: accessLogStream }))
 // app.use(
-//   morgan("combined", {
-//     stream: fs.createWriteStream("./access.log", { flags: "a+" }),
-//   })
+//     morgan("combined", {
+//         stream: fs.createWriteStream("./access.log", { flags: "a+" }),
+//     })
 // );
 //! write logs to a file day by day
-// const fs = require("node:fs");
+const fs = require("node:fs");
 
-// const now = new Date().toISOString().split("T")[0]
-// console.log(typeof now, now)
+const now = new Date().toISOString().split("T")[0]
+console.log(typeof now, now)
 
-// app.use(
-//   morgan("combined", {
-//     stream: fs.createWriteStream(`./logs/${now}.log`, { flags: "a+" }),
-//   })
-// );
+app.use(
+    morgan("combined", {
+        stream: fs.createWriteStream(`./logs/${now}.log`, { flags: "a+" }),
+    })
+);
 
 /* -------------------------------------------------------------------------- */
 /*                                Documentation                               */
