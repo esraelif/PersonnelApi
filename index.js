@@ -33,7 +33,7 @@ dbConnection();
 // https://github.com/expressjs/morgan
 //? npm i morgan
 
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 // app.use(morgan("combined"))
 // app.use(morgan("common"))
@@ -50,21 +50,21 @@ const morgan = require("morgan");
 // setup the logger
 // app.use(morgan('combined', { stream: accessLogStream }))
 // app.use(
-//     morgan("combined", {
-//         stream: fs.createWriteStream("./access.log", { flags: "a+" }),
-//     })
+//   morgan("combined", {
+//     stream: fs.createWriteStream("./access.log", { flags: "a+" }),
+//   })
 // );
 //! write logs to a file day by day
-const fs = require("node:fs");
+// const fs = require("node:fs");
 
-const now = new Date().toISOString().split("T")[0]
-console.log(typeof now, now)
+// const now = new Date().toISOString().split("T")[0]
+// console.log(typeof now, now)
 
-app.use(
-    morgan("combined", {
-        stream: fs.createWriteStream(`./logs/${now}.log`, { flags: "a+" }),
-    })
-);
+// app.use(
+//   morgan("combined", {
+//     stream: fs.createWriteStream(`./logs/${now}.log`, { flags: "a+" }),
+//   })
+// );
 
 /* -------------------------------------------------------------------------- */
 /*                                Documentation                               */
@@ -76,28 +76,28 @@ app.use(
 
 //* JSON
 // app.use("/documents/json", (req, res) => {
-//     res.sendFile("swagger.json", { root: "." });
+//   res.sendFile("swagger.json", { root: "." });
 // });
 
 //! SWAGGER
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./swagger.json");
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerDocument = require("./swagger.json");
 
-app.use(
-    "/documents/swagger",
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument, {
-        swaggerOptions: {
-            persistAuthorization: true,
-        },
-    })
-);
+// app.use(
+//   "/documents/swagger",
+//   swaggerUi.serve,
+//   swaggerUi.setup(swaggerDocument, {
+//     swaggerOptions: {
+//       persistAuthorization: true,
+//     },
+//   })
+// );
 
 //? REDOC
 // const redoc = require("redoc-express");
 // app.use("/documents/redoc", redoc({
-//   title: "Personnel Api",
-//   specUrl: '/documents/json'
+//     title: "Personnel Api",
+//     specUrl: '/documents/json'
 // }))
 
 /* -------------------------------------------------------------------------- */
@@ -107,7 +107,7 @@ app.use(
 //* accept json
 app.use(express.json());
 
-app.use(require("./src/middlewares/logging"));
+// app.use(require("./src/middlewares/logging")); //* vercel dosya işlemlerine izin vermiyor.
 
 //*Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
