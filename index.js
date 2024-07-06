@@ -76,22 +76,22 @@ app.use(
 
 //* JSON
 // app.use("/documents/json", (req, res) => {
-//   res.sendFile("swagger.json", { root: "." });
+//     res.sendFile("swagger.json", { root: "." });
 // });
 
 //! SWAGGER
-// const swaggerUi = require("swagger-ui-express");
-// const swaggerDocument = require("./swagger.json");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
-// app.use(
-//   "/documents/swagger",
-//   swaggerUi.serve,
-//   swaggerUi.setup(swaggerDocument, {
-//     swaggerOptions: {
-//       persistAuthorization: true,
-//     },
-//   })
-// );
+app.use(
+    "/documents/swagger",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument, {
+        swaggerOptions: {
+            persistAuthorization: true,
+        },
+    })
+);
 
 //? REDOC
 // const redoc = require("redoc-express");
