@@ -96,8 +96,8 @@ dbConnection();
 //? REDOC
 // const redoc = require("redoc-express");
 // app.use("/documents/redoc", redoc({
-//     title: "Personnel Api",
-//     specUrl: '/documents/json'
+//   title: "Personnel Api",
+//   specUrl: '/documents/json'
 // }))
 
 /* -------------------------------------------------------------------------- */
@@ -107,7 +107,7 @@ dbConnection();
 //* accept json
 app.use(express.json());
 
-// app.use(require("./src/middlewares/logging")); //* vercel dosya işlemlerine izin vermiyor.
+app.use(require("./src/middlewares/logging"));
 
 //*Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
